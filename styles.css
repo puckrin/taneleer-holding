@@ -1,0 +1,254 @@
+/* ──────────────────────────────────────────────────────────
+   Taneleer — Holding page
+   Single screen. Brand-consistent. No JS.
+   ────────────────────────────────────────────────────────── */
+
+:root {
+  --bg0: #070604;
+  --bg1: #0c0a06;
+  --rule: #2e2410;
+
+  --amber-hi:    #f0a830;
+  --amber:       #c07818;
+  --amber-mid:   #9a6820;
+  --amber-dim:   #5a3c10;
+  --amber-ghost: #180e04;
+
+  --tx0: #f0c060;
+  --tx1: #d0a050;
+  --tx2: #a07838;
+  --tx3: #785828;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+html {
+  background: var(--bg0);
+  color: var(--tx1);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body { min-height: 100vh; overflow-x: hidden; }
+
+.holding {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 34px 40px;
+  gap: 21px;
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ── System label, top-left ──────────────────────────────── */
+
+.sys {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tx3);
+  opacity: 0;
+  animation: fade 600ms 100ms forwards ease-out;
+}
+
+/* ── Centred content ─────────────────────────────────────── */
+
+.centre {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 21px;
+  padding: 21px 0;
+}
+
+.mark-row {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  opacity: 0;
+  animation: fade 800ms 200ms forwards ease-out;
+}
+
+.mark {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mark-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--amber);
+  border-style: solid;
+  border-width: 0;
+}
+.mark-corner.tl { top: 0; left: 0;  border-top-width: 2px; border-left-width:  2px; }
+.mark-corner.tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+.mark-corner.bl { bottom: 0; left: 0;  border-bottom-width: 2px; border-left-width:  2px; }
+.mark-corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+.mark-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 56px;
+  color: var(--tx0);
+  line-height: 1;
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 80px;
+  color: var(--tx0);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.byline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--tx2);
+  opacity: 0;
+  animation: fade 800ms 400ms forwards ease-out;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: var(--amber-ghost);
+  border: 1px solid var(--amber-dim);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber-hi);
+  margin-top: 8px;
+  opacity: 0;
+  animation: fade 800ms 600ms forwards ease-out;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber-hi);
+  animation: dot-blink 3s steps(2) infinite;
+}
+
+.ledger {
+  max-width: 460px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: var(--tx2);
+  line-height: 1.7;
+  margin-top: 8px;
+  opacity: 0;
+  animation: fade 800ms 800ms forwards ease-out;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+
+.ledger-foot {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tx3);
+  padding-top: 21px;
+  border-top: 0.5px solid var(--rule);
+  opacity: 0;
+  animation: fade 600ms 1000ms forwards ease-out;
+}
+
+/* ── Reticle, top-right corner ───────────────────────────── */
+
+.reticle {
+  position: absolute;
+  top: 34px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+}
+.reticle-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 0.5px solid var(--amber-dim);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.reticle-ring.outer { width: 80px; height: 80px; animation: rotate 30s linear infinite; }
+.reticle-ring.inner { width: 52px; height: 52px; animation: rotate 45s linear infinite reverse; }
+.reticle-cross {
+  position: absolute;
+  background: var(--amber-dim);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.reticle-cross.h { width: 80px; height: 0.5px; }
+.reticle-cross.v { width: 0.5px; height: 80px; }
+
+/* ── Animations ──────────────────────────────────────────── */
+
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes dot-blink {
+  0%, 70% { opacity: 1; }
+  71%, 100% { opacity: 0.25; }
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .holding { padding: 21px; }
+  .mark-row { gap: 13px; }
+  .mark { width: 56px; height: 56px; }
+  .mark-corner { width: 12px; height: 12px; }
+  .mark-letter { font-size: 40px; }
+  .wordmark { font-size: 52px; }
+  .byline { font-size: 20px; }
+  .ledger-foot { flex-direction: column; gap: 4px; align-items: flex-start; }
+  .reticle { top: 21px; right: 21px; width: 56px; height: 56px; }
+  .reticle-ring.outer { width: 56px; height: 56px; }
+  .reticle-ring.inner { width: 36px; height: 36px; }
+  .reticle-cross.h { width: 56px; }
+  .reticle-cross.v { height: 56px; }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .reticle-ring { animation: none; }
+  .status-dot { animation: none; }
+}
