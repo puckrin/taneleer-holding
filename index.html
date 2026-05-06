@@ -8,6 +8,8 @@
   <meta name="theme-color" content="#070604">
   <meta name="robots" content="noindex,nofollow">
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -29,13 +31,20 @@
 
     <main class="centre">
       <div class="mark-row">
-        <div class="mark" aria-hidden="true">
-          <span class="mark-corner tl"></span>
-          <span class="mark-corner tr"></span>
-          <span class="mark-corner bl"></span>
-          <span class="mark-corner br"></span>
-          <span class="mark-letter">T</span>
-        </div>
+        <svg class="mark" viewBox="0 0 40 40" width="80" height="80" aria-hidden="true">
+          <g fill="none" stroke="#c07818" stroke-width="2">
+            <path d="M 1 11 L 1 1 L 11 1"/>
+            <path d="M 29 1 L 39 1 L 39 11"/>
+            <path d="M 39 29 L 39 39 L 29 39"/>
+            <path d="M 11 39 L 1 39 L 1 29"/>
+          </g>
+          <g fill="#f0c060">
+            <rect x="11" y="6.5" width="10.5" height="10.5"/>
+            <rect x="23" y="6.5" width="6" height="10.5"/>
+            <rect x="11" y="18.5" width="6" height="15"/>
+            <rect x="18.5" y="18.5" width="10.5" height="15"/>
+          </g>
+        </svg>
         <h1 class="wordmark">Taneleer</h1>
       </div>
 
