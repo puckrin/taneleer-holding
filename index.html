@@ -1,69 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taneleer — Forthcoming</title>
-  <meta name="description" content="The collection, properly kept. A desktop archivist for digital comics, presently in production.">
-  <meta name="theme-color" content="#070604">
-  <meta name="robots" content="noindex,nofollow">
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taneleer — The collection, properly kept.</title>
+<meta name="description" content="A macOS archivist for digital comics. Normalises CBZ, CBR and PDF to CBZ and enriches ComicInfo.xml from ComicVine, ready for Komga.">
+<meta name="theme-color" content="#070604">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="Taneleer — The collection, properly kept.">
+<meta property="og:description" content="A macOS archivist for digital comics. Normalises CBZ, CBR and PDF to CBZ and enriches ComicInfo.xml from ComicVine, ready for Komga.">
+<meta property="og:image" content="https://taneleer.app/assets/shot-review.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Taneleer home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#c07818" stroke-width="2"><path d="M1 11V1h10M29 1h10v10M39 29v10H29M11 39H1V29"/></g><g fill="#f0c060"><rect x="11" y="6.5" width="10.5" height="10.5"/><rect x="23" y="6.5" width="6" height="10.5"/><rect x="11" y="18.5" width="6" height="15"/><rect x="18.5" y="18.5" width="10.5" height="15"/></g></svg>
+    Taneleer</a>
+  <nav aria-label="Primary">
+    <a href="index.html#features" class="hide-s">Features</a>
+    <a href="index.html#matching" class="hide-s">Matching</a>
+    <a href="how-to.html" class="hide-xs" >How to use</a>
+    <a href="https://ko-fi.com/seriousmoonlight">Support</a>
+    <a class="btn primary" href="index.html#download">Download</a>
+  </nav>
+</div></header>
 
-  <div class="holding">
-
-    <div class="reticle" aria-hidden="true">
-      <div class="reticle-ring outer"></div>
-      <div class="reticle-ring inner"></div>
-      <div class="reticle-cross h"></div>
-      <div class="reticle-cross v"></div>
-    </div>
-
-    <header class="sys">TNLR // Comic Archive Management</header>
-
-    <main class="centre">
-      <div class="mark-row">
-        <svg class="mark" viewBox="0 0 40 40" width="80" height="80" aria-hidden="true">
-          <g fill="none" stroke="#c07818" stroke-width="2">
-            <path d="M 1 11 L 1 1 L 11 1"/>
-            <path d="M 29 1 L 39 1 L 39 11"/>
-            <path d="M 39 29 L 39 39 L 29 39"/>
-            <path d="M 11 39 L 1 39 L 1 29"/>
-          </g>
-          <g fill="#f0c060">
-            <rect x="11" y="6.5" width="10.5" height="10.5"/>
-            <rect x="23" y="6.5" width="6" height="10.5"/>
-            <rect x="11" y="18.5" width="6" height="15"/>
-            <rect x="18.5" y="18.5" width="10.5" height="15"/>
-          </g>
-        </svg>
-        <h1 class="wordmark">Taneleer</h1>
-      </div>
-
-      <p class="byline">The collection, properly kept.</p>
-
-      <div class="status">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span class="status-label">Forthcoming.</span>
-      </div>
-
-      <p class="ledger">A desktop archivist for digital comics, in production. When it is fit to release, it will appear here.</p>
-    </main>
-
-    <footer class="ledger-foot">
-      <span>v0.5 — 2026</span>
-      <span>taneleer.app</span>
-    </footer>
-
+<main>
+<div class="wrap hero">
+  <p class="label">Comic archive management &middot; macOS</p>
+  <h1>The collection,<br>properly kept.</h1>
+  <p class="lede">Taneleer converts your comics to CBZ, matches each issue against ComicVine, and files it where Komga expects to find it.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/puckrin/taneleer-releases/releases/latest">Download for macOS</a>
+    <a class="btn" href="how-to.html">How to use</a>
   </div>
+  <p class="fine">v1.0.0 &middot; signed &amp; notarised &middot; Apple Silicon and Intel &middot; free</p>
+</div>
 
-</body>
-</html>
+<div class="wrap stage">
+  <figure><div class="shot"><img src="assets/shot-review.jpg" alt="The Taneleer review panel: a CBZ file with its cover, parsed filename, and ranked ComicVine candidates with score breakdowns" width="1384" height="868" loading="lazy"><i></i></div><figcaption>Review: every candidate is ranked, scored and shown with its cover.</figcaption></figure>
+</div>
+
+<section id="features"><div class="wrap">
+  <p class="label">What it does</p>
+  <h2>Order, applied without guesswork.</h2>
+  <p class="dim" style="max-width:620px">Point Taneleer at the collection you already have. It reads, converts and proposes. You confirm. Nothing is written to your source files, ever.</p>
+  <div class="grid">
+    <div class="cell"><span class="label">Ingest</span><h3>CBZ, CBR and PDF</h3><p>CBR and PDF are converted to CBZ on entry. No system unrar, no PDF binaries. Existing ComicInfo.xml is preserved.</p></div>
+    <div class="cell"><span class="label">Enrich</span><h3>ComicVine matching</h3><p>Candidates are ranked on series, issue, year and a cover fingerprint. The score breakdown is always shown.</p></div>
+    <div class="cell"><span class="label">Control</span><h3>Fills and overwrites</h3><p>Empty fields are filled. Existing values change only where you tick them. Your data is trusted until you say otherwise.</p></div>
+    <div class="cell"><span class="label">Organise</span><h3>Path templates</h3><p>Choose a preset or write your own: <code>{Series}/{Series} #{Number} ({Year}).cbz</code>, with a live preview.</p></div>
+    <div class="cell"><span class="label">Automate</span><h3>Three auto-apply tiers</h3><p>Manual, Assisted or Aggressive, with a tunable threshold. Files with existing metadata are never applied silently.</p></div>
+    <div class="cell"><span class="label">Integrate</span><h3>Komga, kept in step</h3><p>A scan is triggered on Komga after every confirmation. Optional watch mode rescans the source library for you.</p></div>
+  </div>
+</div></section>
+
+<section id="matching"><div class="wrap">
+  <p class="label">The matching</p>
+  <h2>Filenames lie. Taneleer checks.</h2>
+  <p class="dim" style="max-width:640px">Every issue is read carefully, ranked in two passes, and verified against its cover. The working is always shown, so a confident match and a lucky one are never confused.</p>
+  <div class="split" style="margin-top:40px;align-items:start">
+    <ol class="mlist">
+      <li><span class="label">01 &middot; Parse</span><h3>Read the filename properly</h3><p>Year, volume and issue number are extracted from any common pattern. <code>trees001</code> becomes series <em>trees</em>, issue 1. Jammed names such as <code>seventoeternity</code> are word-segmented before ComicVine is asked, so it finds <em>Seven To Eternity</em>.</p></li>
+      <li><span class="label">02 &middot; Rank</span><h3>Score every candidate on text</h3><p>Series names are compared by token similarity, ignoring case and diacritics, with a second test for joined forms. Issue number must match exactly. Year must fall within one of the cover date.</p></li>
+      <li><span class="label">03 &middot; Verify</span><h3>Compare the cover itself</h3><p>The ten best candidates have their covers fingerprinted and compared to your file&rsquo;s cover, by perceptual hash. It raises confidence; it never disqualifies, because variant covers are common and a different cover is not a wrong issue.</p></li>
+      <li><span class="label">04 &middot; Show</span><h3>Every score, itemised</h3><p>Each candidate carries its score and a per-signal breakdown, so you can see precisely why it ranks where it does.</p></li>
+    </ol>
+    <div>
+      <p class="label">How a score is made</p>
+      <div class="signals" role="img" aria-label="Score weights: series name 40 percent, issue number 25 percent, cover image 20 percent, year 15 percent">
+        <div><span>Series name</span><b style="--w:40%"></b><em>40%</em></div>
+        <div><span>Issue number</span><b style="--w:25%"></b><em>25%</em></div>
+        <div><span>Cover image</span><b style="--w:20%"></b><em>20%</em></div>
+        <div><span>Year</span><b style="--w:15%"></b><em>15%</em></div>
+      </div>
+      <p class="dim" style="font-size:13px;margin-top:22px">Where the filename is hopeless, you teach Taneleer once. <b style="color:var(--tx0);font-weight:400">Aliases</b> fold your own naming to a canonical series by prefix or regex. <b style="color:var(--tx0);font-weight:400">Series hints</b> carry one confirmed match to the siblings in the same run, so a long series costs one search, not twenty.</p>
+      <p class="dim" style="font-size:13px;margin-top:14px">The same cover fingerprint powers duplicate detection across the collection.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="label">The method</p>
+  <h2>Four steps. One queue.</h2>
+  <ol class="steps">
+    <li><h3>Scan</h3><p>Taneleer walks the source library and converts new files into a pending queue, live.</p></li>
+    <li><h3>Review</h3><p>Each file shows its cover, parsed filename and ranked ComicVine candidates.</p></li>
+    <li><h3>Confirm</h3><p>See exactly which fields fill and which differ. Confirm, and the next file appears.</p></li>
+    <li><h3>Collect</h3><p>The file is written to the output library at its template path. Komga reads it from there.</p></li>
+  </ol>
+  <p style="margin-top:34px"><a href="how-to.html">Read the full walkthrough &rarr;</a></p>
+</div></section>
+
+<section><div class="wrap split">
+  <div>
+    <p class="label">Safe by construction</p>
+    <h2>Your source library is read-only.</h2>
+    <p>Two directories, one pipeline. The source is never modified or deleted from. Taneleer produces its output elsewhere, and the output is always a valid input, so a round trip is safe.</p>
+    <div class="tags"><span class="tag">Pending</span><span class="tag">Confirmed</span><span class="tag">Compromised</span><span class="tag">Skipped</span></div>
+  </div>
+  <div>
+    <p class="dim" style="font-size:13px">Every file carries one of four statuses. Nothing is called Confirmed without a ComicVine match, and every state change is shown twice: on the item and in the tab counts.</p>
+    <p class="dim" style="font-size:13px;margin-top:14px">Duplicates are found by cover fingerprint. Jammed filenames such as <code>seventoeternity</code> are folded to their series by alias rules. Re-enrichment of a confirmed file is always a manual act.</p>
+  </div>
+</div></section>
+
+<section id="support"><div class="wrap narrow" style="text-align:center">
+  <p class="label">Support</p>
+  <h2>Free, and kept that way.</h2>
+  <p class="dim">Taneleer is free, and made by one person. If it has put your collection in order, a contribution on Ko-fi funds further maintenance. It is entirely optional.</p>
+  <p style="margin-top:26px"><a class="btn" href="https://ko-fi.com/seriousmoonlight">Support on Ko-fi</a></p>
+</div></section>
+
+<section id="download" class="download"><div class="wrap narrow">
+  <p class="label">Download</p>
+  <h2>Taneleer for macOS</h2>
+  <p class="dim">Open the DMG, drag Taneleer into Applications, and begin. First launch walks you through setup.</p>
+  <p style="margin-top:28px"><a class="btn primary" href="https://github.com/puckrin/taneleer-releases/releases/latest">Download the latest release</a></p>
+  <div class="meta"><span><b>Version</b> 1.0.0</span><span><b>Requires</b> macOS 11 or later</span><span><b>Architecture</b> Apple Silicon &amp; Intel</span><span><b>Price</b> Free</span></div>
+  <p class="fine">You will also need a free <a href="https://comicvine.gamespot.com/api/">ComicVine API key</a>. Windows is not available at v1.</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <span>&copy; 2026 Serious Moonlight</span>
+  <span><a href="how-to.html">How to use</a> &nbsp;&middot;&nbsp; <a href="https://github.com/puckrin/taneleer-releases/releases">Changelog</a> &nbsp;&middot;&nbsp; <a href="https://ko-fi.com/seriousmoonlight">Support</a> &nbsp;&middot;&nbsp; taneleer.app</span>
+</div></footer>
+</body></html>

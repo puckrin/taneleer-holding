@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to use Taneleer</title>
+<meta name="description" content="A step-by-step guide to Taneleer: install, set up, scan, review candidates, confirm, and keep the collection in order.">
+<meta name="theme-color" content="#070604">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="How to use Taneleer">
+<meta property="og:description" content="A step-by-step guide to Taneleer: install, set up, scan, review candidates, confirm, and keep the collection in order.">
+<meta property="og:image" content="https://taneleer.app/assets/shot-review.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Taneleer home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#c07818" stroke-width="2"><path d="M1 11V1h10M29 1h10v10M39 29v10H29M11 39H1V29"/></g><g fill="#f0c060"><rect x="11" y="6.5" width="10.5" height="10.5"/><rect x="23" y="6.5" width="6" height="10.5"/><rect x="11" y="18.5" width="6" height="15"/><rect x="18.5" y="18.5" width="10.5" height="15"/></g></svg>
+    Taneleer</a>
+  <nav aria-label="Primary">
+    <a href="index.html#features" class="hide-s">Features</a>
+    <a href="index.html#matching" class="hide-s">Matching</a>
+    <a href="how-to.html" class="hide-xs" aria-current="page">How to use</a>
+    <a href="https://ko-fi.com/seriousmoonlight">Support</a>
+    <a class="btn primary" href="index.html#download">Download</a>
+  </nav>
+</div></header>
+
+<main>
+<div class="wrap narrow pagehead">
+  <p class="label">Guide</p>
+  <h1>How to use Taneleer</h1>
+  <p class="lede">From a folder of unsorted files to a collection Komga can read.</p>
+  <div class="toc"><a href="#install">Install</a><a href="#setup">Setup</a><a href="#scan">Scan</a><a href="#review">Review</a><a href="#confirm">Confirm</a><a href="#collection">Collection</a><a href="#reenrich">Re-enrich</a><a href="#more">Going further</a><a href="#faq">Questions</a></div>
+</div>
+<div class="wrap how">
+
+<div class="step" id="install"><div class="n">1</div><div>
+  <h2>Install</h2>
+  <p><a href="index.html#download">Download</a> the DMG, open it, and drag Taneleer into your Applications folder. The build is signed and notarised, so it opens without warnings. Taneleer requires macOS 11 or later and updates itself when a new version is released.</p>
+</div></div>
+
+<div class="step" id="setup"><div class="n">2</div><div>
+  <h2>Set up</h2>
+  <p>First launch runs a short setup. You will be asked for:</p>
+  <dl>
+    <dt>Source library</dt><dd>The folder holding your existing comics. Read-only.</dd>
+    <dt>Output library</dt><dd>Where Taneleer writes finished files. Point Komga here.</dd>
+    <dt>ComicVine API key</dt><dd>Free from <a href="https://comicvine.gamespot.com/api/">comicvine.gamespot.com/api</a>. Stored locally.</dd>
+    <dt>Path template</dt><dd>How output files are named and foldered. The default, Komga simple, suits most.</dd>
+  </dl>
+  <p class="note">Keep source and output separate. They may be the same folder once you trust the result, but Settings will warn you.</p>
+  <figure style="max-width:720px"><div class="shot"><img src="assets/shot-settings.jpg" alt="The Taneleer settings screen showing source library, output library, ComicVine API key and path template with live preview" width="800" height="656" loading="lazy"><i></i></div><figcaption>Settings: libraries, API key and path template, with a live preview of the resolved path.</figcaption></figure>
+</div></div>
+
+<div class="step" id="scan"><div class="n">3</div><div>
+  <h2>Scan the source library</h2>
+  <p>Press <kbd>Scan source</kbd>. Taneleer walks the source folder and, for each new or changed file, converts it to CBZ and places it in the pending queue. Files appear in the Pending tab as they are processed, and a status line shows progress.</p>
+  <p>CBR and PDF files are converted on entry; CBZ files are copied. A file that cannot be read goes to the Exceptions tab with a reason.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/shot-scan.jpg" alt="The Pending tab after a scan, showing six imported files queued for review" width="1000" height="600" loading="lazy"><i></i></div><figcaption>A completed scan: six issues imported and awaiting review.</figcaption></figure>
+</div></div>
+
+<div class="step" id="review"><div class="n">4</div><div>
+  <h2>Review a file</h2>
+  <p>Select a file in the Pending list. The review panel shows its cover, the series, issue, year and volume parsed from the filename, and a ranked list of ComicVine candidates.</p>
+  <p>Each candidate carries a score and a breakdown:</p>
+  <dl>
+    <dt>SERIES</dt><dd>How closely the series name matches.</dd>
+    <dt>ISSUE</dt><dd>Whether the issue number matches exactly.</dd>
+    <dt>YEAR</dt><dd>Whether the year is within one of the cover date.</dd>
+    <dt>VOL</dt><dd>Whether the volume matches.</dd>
+    <dt>IMG</dt><dd>Cover similarity, from a visual fingerprint. A boost, never a gate: variant covers are common.</dd>
+  </dl>
+  <p class="dim">The score is weighted: series name 40%, issue number 25%, cover 20%, year 15%. <a href="index.html#matching">How the matching works</a>.</p>
+  <p>Use <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> to step through the queue. If no candidate is right, re-search with a different series, issue or year.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/shot-candidates.jpg" alt="The review panel with ranked candidates and score breakdowns" width="1070" height="655" loading="lazy"><i></i></div><figcaption>The review panel: parsed filename above, ranked candidates below.</figcaption></figure>
+</div></div>
+
+<div class="step" id="confirm"><div class="n">5</div><div>
+  <h2>Compare and confirm</h2>
+  <p>Click a candidate to open its comparison. Fields are divided in two:</p>
+  <ul>
+    <li><b>Will fill</b> &mdash; the file had nothing there. Always applied.</li>
+    <li><b>Existing fields differ</b> &mdash; the file already had a value. Each has a checkbox, all ticked by default. Untick any you wish to keep.</li>
+  </ul>
+  <p>The Confirm button states exactly how many fields it will change. Confirm, and the file is written to the output library at its template path, then the next file opens. Use <kbd>Skip</kbd> to defer a file instead.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/shot-diff.jpg" alt="The comparison for a ComicVine candidate listing the fields that will be filled" width="1030" height="586" loading="lazy"><i></i></div><figcaption>Will fill: the file had no metadata, so every field is added.</figcaption></figure><figure style="max-width:860px"><div class="shot"><img src="assets/shot-confirm.jpg" alt="The destination path and Confirm button, stating the number of fields to be written" width="1030" height="650" loading="lazy"><i></i></div><figcaption>The destination is shown before you commit. The button states exactly what it will write.</figcaption></figure>
+</div></div>
+
+<div class="step" id="collection"><div class="n">6</div><div>
+  <h2>The collection and exceptions</h2>
+  <p>The tab counts show where every file went. Confirming moves one from Pending to Collection; the numbers change together.</p>
+  <ul>
+    <li><b>Collection</b> &mdash; confirmed issues, newest first. Open a file or re-enrich it.</li>
+    <li><b>Exceptions</b> &mdash; files that could not be read (Compromised) and files you skipped. Each can be re-imported, and a skipped file can be moved back to Pending.</li>
+  </ul>
+  <figure style="max-width:630px"><div class="shot"><img src="assets/shot-collection.jpg" alt="The Collection tab showing one confirmed series" width="700" height="568" loading="lazy"><i></i></div><figcaption>The Collection: confirmed issues, grouped by series.</figcaption></figure>
+</div></div>
+
+<div class="step" id="reenrich"><div class="n">7</div><div>
+  <h2>Re-enrich later</h2>
+  <p>Right-click an issue in the Collection and choose re-enrich to review it against ComicVine again. The row turns amber while under examination. Confirm to apply changes, or cancel and nothing is altered. Re-enrichment is never automatic.</p>
+</div></div>
+
+<div class="step" id="more"><div class="n">8</div><div>
+  <h2>Going further</h2>
+  <dl>
+    <dt>Auto-apply</dt><dd>Settings: Manual (default), Assisted or Aggressive, with a score threshold. Only files with no existing metadata can be applied automatically.</dd>
+    <dt>Series aliases</dt><dd>Teach Taneleer that <code>seventoeternity</code> means Seven To Eternity, by prefix or regex, with a live test field.</dd>
+    <dt>Duplicates</dt><dd>Covers are fingerprinted to flag visual duplicates. The threshold is adjustable.</dd>
+    <dt>Watch mode</dt><dd>Optionally rescan the source library automatically when files change.</dd>
+    <dt>Komga</dt><dd>Enter your Komga URL, credentials and library ID; a scan fires after each confirmation.</dd>
+    <dt>Statistics</dt><dd>Totals and top publishers, series and years, from Settings.</dd>
+  </dl>
+  <p class="dim" style="margin-top:14px">Press <kbd>&#8984;</kbd><kbd>/</kbd> in the app for keyboard shortcuts.</p>
+</div></div>
+
+<div class="step" id="faq" style="display:block">
+  <h2>Questions</h2>
+  <details><summary>Will Taneleer change my original files?</summary><p>No. The source library is read-only. All output is written to the output library.</p></details>
+  <details><summary>ComicVine says the rate limit is reached.</summary><p>ComicVine allows about 200 requests an hour. Taneleer pauses, shows a countdown, and resumes by itself. Work already done is kept.</p></details>
+  <details><summary>A file shows as Compromised.</summary><p>It could not be read or converted. The Exceptions tab gives the reason. Open the source, repair or replace it, then choose Re-import.</p></details>
+  <details><summary>Can I delete a file from the collection in Taneleer?</summary><p>Not directly. The source library is the source of truth; remove the file there. In bulk, you can retire rows from the Collection while leaving output files in place.</p></details>
+  <details><summary>Taneleer is free. Can I support it?</summary><p>Yes, optionally, through <a href="https://ko-fi.com/seriousmoonlight">Ko-fi</a>. Nothing is locked behind it.</p></details>
+  <details><summary>Is there a Windows version?</summary><p>Not at v1. A portable build is planned after release.</p></details>
+</div>
+
+</div>
+</main>
+<footer><div class="wrap">
+  <span>&copy; 2026 Serious Moonlight</span>
+  <span><a href="how-to.html">How to use</a> &nbsp;&middot;&nbsp; <a href="https://github.com/puckrin/taneleer-releases/releases">Changelog</a> &nbsp;&middot;&nbsp; <a href="https://ko-fi.com/seriousmoonlight">Support</a> &nbsp;&middot;&nbsp; taneleer.app</span>
+</div></footer>
+</body></html>
