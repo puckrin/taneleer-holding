@@ -9,11 +9,11 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:title" content="Taneleer — The collection, properly kept.">
 <meta property="og:description" content="A macOS archivist for digital comics. Normalises CBZ, CBR and PDF to CBZ and enriches ComicInfo.xml from ComicVine, ready for Komga.">
-<meta property="og:image" content="https://taneleer.app/assets/shot-review.jpg">
+<meta property="og:image" content="https://taneleer.app/assets/v11-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -38,11 +38,11 @@
     <a class="btn primary" data-download href="https://github.com/puckrin/taneleer-releases/releases/latest">Download for macOS</a>
     <a class="btn" href="how-to.html">How to use</a>
   </div>
-  <p class="fine">v<span data-version>1.0.0</span> &middot; Apple Silicon and Intel &middot; free</p>
+  <p class="fine">v<span data-version>1.1.0</span> &middot; Apple Silicon and Intel &middot; free</p>
 </div>
 
 <div class="wrap stage">
-  <figure><div class="shot"><img src="assets/shot-review.jpg" alt="The Taneleer review panel: a CBZ file with its cover, parsed filename, and ranked ComicVine candidates with score breakdowns" width="1384" height="868" loading="lazy"><i></i></div><figcaption>Review: every candidate is ranked, scored and shown with its cover.</figcaption></figure>
+  <figure><div class="shot"><img src="assets/v11-hero.jpg" alt="The Taneleer review panel: wickedplusthedivine_vol9.cbz with its cover, parsed filename, a Resolve the series banner and ranked ComicVine candidates" width="1362" height="848"><i></i></div><figcaption>Review: every candidate is ranked, scored and shown with its cover.</figcaption></figure>
 </div>
 
 <section id="features"><div class="wrap">
@@ -50,13 +50,16 @@
   <h2>Order, applied without guesswork.</h2>
   <p class="dim" style="max-width:620px">Point Taneleer at the collection you already have. It reads, converts and proposes. You confirm. Nothing is written to your source files, ever.</p>
   <div class="grid">
-    <div class="cell"><span class="label">Ingest</span><h3>CBZ, CBR and PDF</h3><p>CBR and PDF are converted to CBZ on entry. No system unrar, no PDF binaries. Existing ComicInfo.xml is preserved.</p></div>
-    <div class="cell"><span class="label">Enrich</span><h3>ComicVine matching</h3><p>Candidates are ranked on series, issue, year and a cover fingerprint. The score breakdown is always shown.</p></div>
+    <div class="cell"><span class="label">Ingest</span><h3>CBZ, CBR and PDF</h3><p>CBR and PDF are converted to CBZ on entry. No system unrar, no PDF binaries. Large PDFs are read from disk, not memory. Existing ComicInfo.xml is preserved.</p></div>
+    <div class="cell"><span class="label">Enrich</span><h3>ComicVine matching</h3><p>Candidates are ranked on series, issue, volume, year and a cover fingerprint, and shown with the publisher, volume and issue count that tell relaunches apart.</p></div>
     <div class="cell"><span class="label">Control</span><h3>Fills and overwrites</h3><p>Empty fields are filled. Existing values change only where you tick them. Your data is trusted until you say otherwise.</p></div>
     <div class="cell"><span class="label">Organise</span><h3>Path templates</h3><p>Choose a preset or write your own: <code>{Series}/{Series} #{Number} ({Year}).cbz</code>, with a live preview.</p></div>
     <div class="cell"><span class="label">Automate</span><h3>Three auto-apply tiers</h3><p>Manual, Assisted or Aggressive, with a tunable threshold. Files with existing metadata are never applied silently.</p></div>
     <div class="cell"><span class="label">Integrate</span><h3>Komga, kept in step</h3><p>A scan is triggered on Komga after every confirmation. Optional watch mode rescans the source library for you.</p></div>
-  </div>
+
+    <div class="cell"><span class="label">Resolve</span><h3>A whole run at once</h3><p>When one volume matches many files, Taneleer pairs each file with its issue and confirms them together, showing which pairings need a look.</p></div>
+    <div class="cell"><span class="label">Bulk</span><h3>Known matches, topped up</h3><p>Files already carrying a ComicVine ID are checked and confirmed in bulk. Missing publisher and volume details on confirmed files are filled in.</p></div>
+    <div class="cell"><span class="label">Reversible</span><h3>Every batch can be undone</h3><p>Confirmed a batch in error? One button puts all of its files back in pending, exactly as they were. Any file you have changed since is left as it is, and you are told which.</p></div>  </div>
 </div></section>
 
 <section id="matching"><div class="wrap">
@@ -65,21 +68,31 @@
   <p class="dim" style="max-width:640px">Every issue is read carefully, ranked in two passes, and verified against its cover. The working is always shown, so a confident match and a lucky one are never confused.</p>
   <div class="split" style="margin-top:40px;align-items:start">
     <ol class="mlist">
-      <li><span class="label">01 &middot; Parse</span><h3>Read the filename properly</h3><p>Year, volume and issue number are extracted from any common pattern. <code>trees001</code> becomes series <em>trees</em>, issue 1. Jammed names such as <code>seventoeternity</code> are word-segmented before ComicVine is asked, so it finds <em>Seven To Eternity</em>.</p></li>
-      <li><span class="label">02 &middot; Rank</span><h3>Score every candidate on text</h3><p>Series names are compared by token similarity, ignoring case and diacritics, with a second test for joined forms. Issue number must match exactly. Year must fall within one of the cover date.</p></li>
-      <li><span class="label">03 &middot; Verify</span><h3>Compare the cover itself</h3><p>The ten best candidates have their covers fingerprinted and compared to your file&rsquo;s cover, by perceptual hash. It raises confidence; it never disqualifies, because variant covers are common and a different cover is not a wrong issue.</p></li>
-      <li><span class="label">04 &middot; Show</span><h3>Every score, itemised</h3><p>Each candidate carries its score and a per-signal breakdown, so you can see precisely why it ranks where it does.</p></li>
+      <li><span class="label">01 &middot; Parse</span><h3>Read the filename properly</h3><p>Year, volume and issue number are extracted from any common pattern. <code>trees001</code> becomes series <em>trees</em>, issue 1. Jammed names such as <code>seventoeternity</code> are word-segmented before ComicVine is asked. A collected edition named for its volume, such as <code>wickedplusthedivine_vol3</code>, is paired with issue 3 of that volume.</p></li>
+      <li><span class="label">02 &middot; Rank</span><h3>Score every candidate on text</h3><p>Series names are compared by token similarity, ignoring case and diacritics, with <code>&amp;</code> and <code>+</code> read as <em>and</em> and <em>plus</em>. The issue number must match exactly; where a file has none, as with collected editions, the volume tag and year count for more. An undated foreign reprint ranks below the original.</p></li>
+      <li><span class="label">03 &middot; Verify</span><h3>Compare the cover itself</h3><p>The leading candidates have their covers fingerprinted and compared to your file&rsquo;s cover, by perceptual hash. It raises confidence; it never disqualifies, because variant covers are common and a different cover is not a wrong issue. Each candidate is labelled <em>matches</em>, <em>similar</em>, <em>differs</em> or <em>not checked</em>. The same fingerprints also find visual duplicates across your collection.</p></li>
+      <li><span class="label">04 &middot; Show</span><h3>Every score, itemised</h3><p>Each candidate carries its score, a per-signal breakdown, and the publisher, start year and issue count of its volume, so you can see precisely why it ranks where it does and which run of a title it belongs to.</p></li>
     </ol>
     <div>
-      <p class="label">How a score is made</p>
-      <div class="signals" role="img" aria-label="Score weights: series name 40 percent, issue number 25 percent, cover image 20 percent, year 15 percent">
-        <div><span>Series name</span><b style="--w:40%"></b><em>40%</em></div>
-        <div><span>Issue number</span><b style="--w:25%"></b><em>25%</em></div>
+      <p class="label">How a score is made &middot; file with an issue number</p>
+      <div class="signals" role="img" aria-label="Score weights for a file with an issue number: series name 24 percent, issue number 24 percent, cover 20 percent, volume tag 12 percent, year 12 percent, volume year 8 percent">
+        <div><span>Series name</span><b style="--w:24%"></b><em>24%</em></div>
+        <div><span>Issue number</span><b style="--w:24%"></b><em>24%</em></div>
         <div><span>Cover image</span><b style="--w:20%"></b><em>20%</em></div>
-        <div><span>Year</span><b style="--w:15%"></b><em>15%</em></div>
+        <div><span>Volume tag</span><b style="--w:12%"></b><em>12%</em></div>
+        <div><span>Year</span><b style="--w:12%"></b><em>12%</em></div>
+        <div><span>Volume year</span><b style="--w:8%"></b><em>8%</em></div>
       </div>
-      <p class="dim" style="font-size:13px;margin-top:22px">Where the filename is hopeless, you teach Taneleer once. <b style="color:var(--tx0);font-weight:400">Aliases</b> fold your own naming to a canonical series by prefix or regex. <b style="color:var(--tx0);font-weight:400">Series hints</b> carry one confirmed match to the siblings in the same run, so a long series costs one search, not twenty.</p>
-      <p class="dim" style="font-size:13px;margin-top:14px">The same cover fingerprint powers duplicate detection across the collection.</p>
+      <p class="label" style="margin-top:26px">Collected edition, no issue number</p>
+      <div class="signals" role="img" aria-label="Score weights for a file without an issue number: series name 32 percent, volume tag 24 percent, cover 20 percent, year 16 percent, volume year 8 percent">
+        <div><span>Series name</span><b style="--w:32%"></b><em>32%</em></div>
+        <div><span>Volume tag</span><b style="--w:24%"></b><em>24%</em></div>
+        <div><span>Cover image</span><b style="--w:20%"></b><em>20%</em></div>
+        <div><span>Year</span><b style="--w:16%"></b><em>16%</em></div>
+        <div><span>Volume year</span><b style="--w:8%"></b><em>8%</em></div>
+      </div>
+      </div>
+      <p class="dim" style="font-size:13px;margin-top:22px">Where the filename is hopeless, you teach Taneleer once. <b style="color:var(--tx0);font-weight:400">Aliases</b> fold your own naming to a canonical series by prefix or regex. <b style="color:var(--tx0);font-weight:400">Resolve a run</b> pairs every pending file of a series with its volume in one step, so a long series costs one decision, not twenty.</p>
     </div>
   </div>
 </div></section>
@@ -121,7 +134,7 @@
   <h2>Taneleer for macOS</h2>
   <p class="dim">Open the DMG, drag Taneleer into Applications, and begin. First launch walks you through setup.</p>
   <p style="margin-top:28px"><a class="btn primary" data-download href="https://github.com/puckrin/taneleer-releases/releases/latest">Download Taneleer (.dmg)</a></p>
-  <div class="meta"><span><b>Version</b> <span data-version>1.0.0</span></span><span><b>Requires</b> macOS 11 or later</span><span><b>Architecture</b> Apple Silicon &amp; Intel</span><span><b>Price</b> Free</span></div>
+  <div class="meta"><span><b>Version</b> <span data-version>1.1.0</span></span><span><b>Requires</b> macOS 11 or later</span><span><b>Architecture</b> Apple Silicon &amp; Intel</span><span><b>Price</b> Free</span></div>
   <p class="fine">Prefer the release notes? <a href="https://github.com/puckrin/taneleer-releases/releases/latest">View the release page</a>. You will also need a free <a href="https://comicvine.gamespot.com/api/">ComicVine API key</a>. Windows is not available at v1.</p>
 </div></section>
 </main>

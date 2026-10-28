@@ -9,11 +9,11 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:title" content="How to use Taneleer">
 <meta property="og:description" content="A step-by-step guide to Taneleer: install, set up, scan, review candidates, confirm, and keep the collection in order.">
-<meta property="og:image" content="https://taneleer.app/assets/shot-review.jpg">
+<meta property="og:image" content="https://taneleer.app/assets/v11-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -34,13 +34,13 @@
   <p class="label">Guide</p>
   <h1>How to use Taneleer</h1>
   <p class="lede">From a folder of unsorted files to a collection Komga can read.</p>
-  <div class="toc"><a href="#install">Install</a><a href="#setup">Setup</a><a href="#scan">Scan</a><a href="#review">Review</a><a href="#confirm">Confirm</a><a href="#collection">Collection</a><a href="#reenrich">Re-enrich</a><a href="#more">Going further</a><a href="#faq">Questions</a></div>
+  <div class="toc"><a href="#install">Install</a><a href="#setup">Setup</a><a href="#scan">Scan</a><a href="#review">Review</a><a href="#confirm">Confirm</a><a href="#bulk">Bulk</a><a href="#collection">Collection</a><a href="#reenrich">Re-enrich</a><a href="#more">Going further</a><a href="#faq">Questions</a></div>
 </div>
 <div class="wrap how">
 
 <div class="step" id="install"><div class="n">1</div><div>
   <h2>Install</h2>
-  <p><a href="index.html#download">Download</a> the DMG, open it, and drag Taneleer into your Applications folder. Taneleer requires macOS 11 or later and updates itself when a new version is released.</p>
+  <p><a href="index.html#download">Download</a> the DMG, open it, and drag Taneleer into your Applications folder. Taneleer requires macOS 11 or later and checks for updates every four hours; when one has downloaded, the footer says so and offers Restart now or Later.</p>
 </div></div>
 
 <div class="step" id="setup"><div class="n">2</div><div>
@@ -53,14 +53,14 @@
     <dt>Path template</dt><dd>How output files are named and foldered. The default, Komga simple, suits most.</dd>
   </dl>
   <p class="note">Keep source and output separate. They may be the same folder once you trust the result, but Settings will warn you.</p>
-  <figure style="max-width:720px"><div class="shot"><img src="assets/shot-settings.jpg" alt="The Taneleer settings screen showing source library, output library, ComicVine API key and path template with live preview" width="800" height="656" loading="lazy"><i></i></div><figcaption>Settings: libraries, API key and path template, with a live preview of the resolved path.</figcaption></figure>
+  <figure style="max-width:720px"><div class="shot"><img src="assets/v11-settings-c.jpg" alt="The Taneleer settings screen showing source library, output library, ComicVine API key and path template" width="800" height="648" loading="lazy"><i></i></div><figcaption>Settings: libraries, API key and path template, with a live preview of the resolved path.</figcaption></figure>
 </div></div>
 
 <div class="step" id="scan"><div class="n">3</div><div>
   <h2>Scan the source library</h2>
   <p>Press <kbd>Scan source</kbd>. Taneleer walks the source folder and, for each new or changed file, converts it to CBZ and places it in the pending queue. Files appear in the Pending tab as they are processed, and a status line shows progress.</p>
   <p>CBR and PDF files are converted on entry; CBZ files are copied. A file that cannot be read goes to the Exceptions tab with a reason.</p>
-  <figure style="max-width:860px"><div class="shot"><img src="assets/shot-scan.jpg" alt="The Pending tab after a scan, showing six imported files queued for review" width="1000" height="600" loading="lazy"><i></i></div><figcaption>A completed scan: six issues imported and awaiting review.</figcaption></figure>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-pending-c.jpg" alt="The Pending tab after a scan: 28 issues queued, with Confirm known matches (21) in the header" width="920" height="730" loading="lazy"><i></i></div><figcaption>A completed scan: 28 issues imported. Confirm known matches (21) appears because 21 of them already carry a ComicVine ID.</figcaption></figure>
 </div></div>
 
 <div class="step" id="review"><div class="n">4</div><div>
@@ -74,9 +74,10 @@
     <dt>VOL</dt><dd>Whether the volume matches.</dd>
     <dt>IMG</dt><dd>Cover similarity, from a visual fingerprint. A boost, never a gate: variant covers are common.</dd>
   </dl>
-  <p class="dim">The score is weighted: series name 40%, issue number 25%, cover 20%, year 15%. <a href="index.html#matching">How the matching works</a>.</p>
-  <p>Use <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> to step through the queue. If no candidate is right, re-search with a different series, issue or year.</p>
-  <figure style="max-width:860px"><div class="shot"><img src="assets/shot-candidates.jpg" alt="The review panel with ranked candidates and score breakdowns" width="1070" height="655" loading="lazy"><i></i></div><figcaption>The review panel: parsed filename above, ranked candidates below.</figcaption></figure>
+  <p>Each candidate also names its volume: the publisher, the year it began, how many issues it holds, and whether its cover matches, is similar, differs or was not checked. ComicVine files relaunches and foreign editions as separate volumes with the same name, and these details tell them apart.</p>
+  <p class="dim">The cover is worth 20% of a score; the rest comes from series name, issue number, volume and year. <a href="index.html#matching">How the matching works</a>.</p>
+  <p>Use <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> to step through the queue. If no candidate is right, open <b>None of these?</b> to re-search, paste a ComicVine issue or volume link to force a match, or enter the details by hand.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-candidates-c.jpg" alt="The Resolve the series banner and the first ComicVine candidate, showing publisher, start year, issue count and a cover match" width="1050" height="450" loading="lazy"><i></i></div><figcaption>A file in a run of seven: the banner offers Resolve the series, and each candidate names its volume, issue count and cover match.</figcaption></figure>
 </div></div>
 
 <div class="step" id="confirm"><div class="n">5</div><div>
@@ -87,30 +88,54 @@
     <li><b>Existing fields differ</b> &mdash; the file already had a value. Each has a checkbox, all ticked by default. Untick any you wish to keep.</li>
   </ul>
   <p>The Confirm button states exactly how many fields it will change. Confirm, and the file is written to the output library at its template path, then the next file opens. Use <kbd>Skip</kbd> to defer a file instead.</p>
-  <figure style="max-width:860px"><div class="shot"><img src="assets/shot-diff.jpg" alt="The comparison for a ComicVine candidate listing the fields that will be filled" width="1030" height="586" loading="lazy"><i></i></div><figcaption>Will fill: the file had no metadata, so every field is added.</figcaption></figure><figure style="max-width:860px"><div class="shot"><img src="assets/shot-confirm.jpg" alt="The destination path and Confirm button, stating the number of fields to be written" width="1030" height="650" loading="lazy"><i></i></div><figcaption>The destination is shown before you commit. The button states exactly what it will write.</figcaption></figure>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-diff-c.jpg" alt="The comparison for a ComicVine candidate: Will fill, 19 fields, each empty field beside its proposed value" width="1050" height="598" loading="lazy"><i></i></div><figcaption>Will fill: the file had no metadata, so all 19 fields are added.</figcaption></figure><figure style="max-width:860px"><div class="shot"><img src="assets/v11-confirm-c.jpg" alt="The destination path and Confirm button, stating the number of fields to be written" width="1050" height="590" loading="lazy"><i></i></div><figcaption>The destination is shown before you commit. The button states exactly what it will write.</figcaption></figure>
 </div></div>
 
-<div class="step" id="collection"><div class="n">6</div><div>
+<div class="step" id="bulk"><div class="n">6</div><div>
+  <h2>Confirm in bulk</h2>
+  <p>When a series arrives as many files, confirming one at a time is wasteful. Taneleer has three bulk tools. Each shows its working before anything is written, and each batch can be undone.</p>
+
+  <h3 style="margin-top:34px">Resolve a run</h3>
+  <p>When a candidate&rsquo;s volume matches several pending files, the review offers <b>Resolve the series</b> (see the banner in the previous step). Each file is paired with the volume&rsquo;s issue of the same number, and the covers are compared. Files fall into <i>Ready</i>, <i>Needs a look</i> (unticked until you tick them) and <i>No match here</i>.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-run-c.jpg" alt="The Resolve run dialog listing seven files paired with the volume issues, each marked cover matches" width="980" height="770" loading="lazy"><i></i></div><figcaption>Seven files, each paired with its volume issue; all covers match, so all start ticked.</figcaption></figure>
+  <p>If no candidate gave a volume, Taneleer asks you to choose one. Check its publisher, start year and issue count; each volume links to its ComicVine page.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-volumes-c.jpg" alt="A list of ComicVine volumes named The Wicked + The Divine with start year, publisher and issue count, each with a Use this volume button" width="980" height="818" loading="lazy"><i></i></div><figcaption>Choose the volume. Here, the 2014 Image volume of nine issues.</figcaption></figure>
+  <p>Where ComicVine lacks some issues, <b>Confirm with series details</b> files those with the volume&rsquo;s details and their own number. Where it splits a title across volumes, the dialog offers the other volumes that hold the missing numbers.</p>
+  <p class="note">Pairing is by number alone. Use this when you are sure of the volume, particularly for collected editions, where a volume number need not match an issue number. Nothing is written until you tick files and confirm.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-run-done-c.jpg" alt="The Resolve run dialog after confirming, reading 7 confirmed with an Undo this batch link" width="980" height="270" loading="lazy"><i></i></div><figcaption>Seven confirmed. Undo this batch reverses them.</figcaption></figure>
+  <p>If a batch was a mistake, <b>Undo this batch</b> puts all of its files back in pending, exactly as they were. Any file you have changed since is left as it is, and you are told which.</p>
+
+  <h3 style="margin-top:34px">Confirm known matches</h3>
+  <p>Pending files that already carry a ComicVine ID are checked against ComicVine in batches. Those it still agrees with start ticked; anything it disputes starts unticked. The button appears in the Pending header.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-known-c.jpg" alt="The Confirm known matches dialog listing files with what each file says and what ComicVine says, all agreeing" width="980" height="818" loading="lazy"><i></i></div><figcaption>Each file&rsquo;s own metadata beside what ComicVine says. Where they agree, the file starts ticked.</figcaption></figure>
+
+  <h3 style="margin-top:34px">Top up series details</h3>
+  <p>In the Collection tab, fills a confirmed file&rsquo;s empty Publisher and Volume from its ComicVine volume. A file sitting in a bare <code>Vol</code> folder is re-filed under the volume&rsquo;s start year. Translated editions are flagged rather than filled.</p>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-topup-c.jpg" alt="The Top up series details dialog listing seven files and the publisher each will gain" width="980" height="580" loading="lazy"><i></i></div><figcaption>Only empty fields are filled; nothing already set is replaced.</figcaption></figure>
+</div></div>
+
+<div class="step" id="collection"><div class="n">7</div><div>
   <h2>The collection and exceptions</h2>
   <p>The tab counts show where every file went. Confirming moves one from Pending to Collection; the numbers change together.</p>
   <ul>
     <li><b>Collection</b> &mdash; confirmed issues, newest first. Open a file or re-enrich it.</li>
-    <li><b>Exceptions</b> &mdash; files that could not be read (Compromised) and files you skipped. Each can be re-imported, and a skipped file can be moved back to Pending.</li>
+    <li><b>Exceptions</b> &mdash; files that could not be read (Compromised) and files you skipped. Each can be re-imported, or all broken files at once with <b>Re-import all broken</b>; a skipped file can be moved back to Pending. The duplicate scan flags files whose source has gone, and <b>Remove from manifest</b> clears the row without touching any file.</li>
   </ul>
-  <figure style="max-width:630px"><div class="shot"><img src="assets/shot-collection.jpg" alt="The Collection tab showing one confirmed series" width="700" height="568" loading="lazy"><i></i></div><figcaption>The Collection: confirmed issues, grouped by series.</figcaption></figure>
+  <figure style="max-width:860px"><div class="shot"><img src="assets/v11-collection-c.jpg" alt="The Collection tab showing five confirmed series with their covers" width="1140" height="560" loading="lazy"><i></i></div><figcaption>The Collection: confirmed issues, grouped by series.</figcaption></figure>
 </div></div>
 
-<div class="step" id="reenrich"><div class="n">7</div><div>
+<div class="step" id="reenrich"><div class="n">8</div><div>
   <h2>Re-enrich later</h2>
   <p>Right-click an issue in the Collection and choose re-enrich to review it against ComicVine again. The row turns amber while under examination. Confirm to apply changes, or cancel and nothing is altered. Re-enrichment is never automatic.</p>
 </div></div>
 
-<div class="step" id="more"><div class="n">8</div><div>
+<div class="step" id="more"><div class="n">9</div><div>
   <h2>Going further</h2>
   <dl>
     <dt>Auto-apply</dt><dd>Settings: Manual (default), Assisted or Aggressive, with a score threshold. Only files with no existing metadata can be applied automatically.</dd>
     <dt>Series aliases</dt><dd>Teach Taneleer that <code>seventoeternity</code> means Seven To Eternity, by prefix or regex, with a live test field.</dd>
     <dt>Duplicates</dt><dd>Covers are fingerprinted to flag visual duplicates. The threshold is adjustable.</dd>
+    <dt>ComicVine limits</dt><dd>The footer shows your request budget. When the limit is reached Taneleer says so, waits, and resumes by itself. The next file is searched in the background while you review, which can be switched off in Settings.</dd>
     <dt>Watch mode</dt><dd>Optionally rescan the source library automatically when files change.</dd>
     <dt>Komga</dt><dd>Enter your Komga URL, credentials and library ID; a scan fires after each confirmation.</dd>
     <dt>Statistics</dt><dd>Totals and top publishers, series and years, from Settings.</dd>
@@ -121,7 +146,7 @@
 <div class="step" id="faq" style="display:block">
   <h2>Questions</h2>
   <details><summary>Will Taneleer change my original files?</summary><p>No. The source library is read-only. All output is written to the output library.</p></details>
-  <details><summary>ComicVine says the rate limit is reached.</summary><p>ComicVine allows about 200 requests an hour. Taneleer pauses, shows a countdown, and resumes by itself. Work already done is kept.</p></details>
+  <details><summary>ComicVine says the rate limit is reached.</summary><p>ComicVine allows about 200 requests an hour. Taneleer says when it is waiting, pauses, and resumes by itself. Work already done is kept.</p></details>
   <details><summary>A file shows as Compromised.</summary><p>It could not be read or converted. The Exceptions tab gives the reason. Open the source, repair or replace it, then choose Re-import.</p></details>
   <details><summary>Can I delete a file from the collection in Taneleer?</summary><p>Not directly. The source library is the source of truth; remove the file there. In bulk, you can retire rows from the Collection while leaving output files in place.</p></details>
   <details><summary>Taneleer is free. Can I support it?</summary><p>Yes, optionally, through <a href="https://ko-fi.com/seriousmoonlight">Ko-fi</a>. Nothing is locked behind it.</p></details>
