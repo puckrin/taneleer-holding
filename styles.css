@@ -141,3 +141,10 @@ nav a{white-space:nowrap}
 .signals b{display:block;height:6px;background:var(--bg3);position:relative}
 .signals b::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--w)*2.5);background:var(--amber)}
 @media(max-width:520px){.hide-xs{display:none}.signals div{grid-template-columns:86px 1fr 36px;gap:10px}}
+
+/* why */
+.why{display:block;margin-top:36px;border-top:1px solid var(--rule)}
+.why>div{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:12px 48px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.why dt{font-family:var(--serif);font-size:26px;line-height:1.15;color:var(--tx0)}
+.why dd{font-size:13px;color:var(--tx2);max-width:560px}
+@media(max-width:760px){.why>div{grid-template-columns:1fr;gap:6px}.why dt{font-size:23px}}
